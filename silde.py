@@ -120,7 +120,7 @@ class tree():
             currNode.nextMove()
             for node in currNode.availPos:
                 if (node != None):
-                    queue.append(node)
+                    stack.append(node)
 
         while (currNode != None):
             print currNode
@@ -128,8 +128,8 @@ class tree():
 
 
 # node0 = node("abc123456789def ")
-node0 = node('87654321 ')
+node0 = node('1234 5678')
 tree0 = tree(node0)
 
-tree0.BFS()
-# tree0.DFS()
+# tree0.BFS()
+tree0.DFS()
