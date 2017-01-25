@@ -199,6 +199,8 @@ class tree():
             print currNode
             currNode = currNode.parent
 
+        # def aStar(self )
+
 #Heuristic that finds the distance tiles are away from their correct position
 #Returns a sum of the distances
 def distH(boardData):
@@ -227,7 +229,11 @@ def locaH(boardData):
             value += 1
     return value
 
-node0 = node('abc12345 6789def')
+#A* heurstic is just the sum of the previous two hueristics
+def aStarH(boardData):
+    return locaH(boardData) + distH(boardData)
+
+node0 = node('7 89a1b2c3d4e5f6')
 # node0 = node('4321 8765')
 tree0 = tree(node0)
 
@@ -235,4 +241,4 @@ tree0 = tree(node0)
 # tree0.DFS(node0)
 # tree0.DLS(node0, 0, False)
 # tree0.IDS(node0)
-# tree0.greedy(node0, distH)
+tree0.greedy(node0, aStarH)
