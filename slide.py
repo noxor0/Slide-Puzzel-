@@ -6,6 +6,7 @@ from heapq import heappush, heappop
 
 #parse stuff - its messy, oh well it works
 COMPLETED = None
+COMPLETEDALT = '123456789abcdfe '
 heuristicToUse = None
 
 messed = sys.argv[1]
@@ -216,7 +217,7 @@ class tree():
         while(len(prioQueue) > 0):
             currNode = heappop(prioQueue)[1]
             nodesExpanded += 1
-            if (currNode.data == COMPLETED):
+            if (currNode.data == COMPLETED or currNode.data == COMPLETEDALT):
                 break
             nodesCreated += currNode.nextMove(heuristic)
             for node in currNode.availPos:
