@@ -138,7 +138,7 @@ class tree():
         while (len(queue) > 0):
             currNode = queue.popleft()
             nodesExpanded += 1
-            if (currNode.data == COMPLETED):
+            if (currNode.data == COMPLETED or currNode.data == COMPLETEDALT):
                 break
             nodesCreated += currNode.nextMove()
             for node in currNode.availPos:
