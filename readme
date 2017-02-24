@@ -1,0 +1,40 @@
+olve the sliding puzzle game
+
+([depth], [numbCreated], [numExpanded], [maxFringe])
+b= branching factor
+d= depth
+BFS
+Puzzle: '237416b859ecd af'
+(12, 33356, 16662, 16695)
+Time:	O(b^d)
+	O(4^12)
+
+DFS
+Puzzle: '12345678 abc9def'
+(52, 108, 53, 56)
+Time:	O(b^d)
+	O(4^52)
+
+IDS
+Puzzle: '12345678 abc9def'
+(4, 32, 35, 3)
+Time:	O(b^d)
+	O(4^4)
+
+GBFS h1
+Puzzle: 'a876bc1532ef 49d'
+(221, 65177, 33639, 31539)
+Time:	O(db*logd)
+	O(221*4*log(221))
+
+GBFS h2
+Puzzle 'a876bc1532ef 49d'
+(197, 8095, 4050, 4046)
+Time:   O(db*logd)
+ 	O(221*4*log(221))
+
+A*
+Puzzle 'a876bc1532ef 49d'
+(131, 2086, 1021, 1066)
+Time:	O(log b*(d))
+	O(log 4*(131))
