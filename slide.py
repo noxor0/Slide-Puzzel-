@@ -229,6 +229,23 @@ class tree():
         #     print currNode
         #     currNode = currNode.parent
 
+    def astar(self, startNode, heuristic):
+        nodesCreated = 0
+        nodesExpanded = 0
+        prioQueue = [(0, startNode)]
+        while(len(prioQueue) > 0):
+            currNode = heappop(prioQueue)[1]
+            nodesExpanded += 1
+            if (currNode.data == COMPLETED or currNode.data == COMPLETEDALT):
+                break
+            nodesCreated += currNode.nextMove(heuristic)
+            currNode.estiH += currNode.level
+            for node in currNode.availPos:
+                if (node != None):
+                    heappush(prioQueue, (node.estiH, node))
+
+        print(currNode.level, nodesCreated, nodesExpanded, len(prioQueue))
+
 #Heuristic that finds the distance tiles are away from their correct position
 #Returns a sum of the distances
 def distH(boardData):
@@ -276,7 +293,10 @@ if(command.lower() == 'gbfs'):
     if(heuristicToUse.lower() == 'h2'):
         tree.greedy(node0, distH)
 if(command.lower() == 'astar'):
-    tree.greedy(node0, aStarH)
+    if(heuristicToUse.lower() == 'h1'):
+        tree.astar(node0, locaH)
+    if(heuristicToUse.lower() == 'h2'):
+        tree.astar(node0, distH)
 if(command.lower() == 'test'):
     node0.nextMove()
     print node0.availPos
