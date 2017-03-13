@@ -89,26 +89,26 @@ class node():
         blankIndex = self.data.index(' ')
         blankCol = blankIndex // SIDE
         blankRow = blankIndex % SIDE
-        if (blankCol - 1 >= 0):
-            newNode = node(self.swapSpace(self.boardArr[blankRow][blankCol - 1]))
-            if (newNode.data not in visited):
-                nodesCreated += 1
-                self.addPos(newNode, heuristic)
-                visited.add(newNode.data)
         if (blankCol + 1 < SIDE):
             newNode = node(self.swapSpace(self.boardArr[blankRow][blankCol + 1]))
             if (newNode.data not in visited):
                 nodesCreated += 1
                 self.addPos(newNode, heuristic)
                 visited.add(newNode.data)
-        if (blankRow - 1 >= 0):
-            newNode = node(self.swapSpace(self.boardArr[blankRow - 1][blankCol]))
+        if (blankRow + 1 < SIDE):
+            newNode = node(self.swapSpace(self.boardArr[blankRow + 1][blankCol]))
             if (newNode.data not in visited):
                 nodesCreated += 1
                 self.addPos(newNode, heuristic)
                 visited.add(newNode.data)
-        if (blankRow + 1 < SIDE):
-            newNode = node(self.swapSpace(self.boardArr[blankRow + 1][blankCol]))
+        if (blankCol - 1 >= 0):
+            newNode = node(self.swapSpace(self.boardArr[blankRow][blankCol - 1]))
+            if (newNode.data not in visited):
+                nodesCreated += 1
+                self.addPos(newNode, heuristic)
+                visited.add(newNode.data)
+        if (blankRow - 1 >= 0):
+            newNode = node(self.swapSpace(self.boardArr[blankRow - 1][blankCol]))
             if (newNode.data not in visited):
                 nodesCreated += 1
                 self.addPos(newNode, heuristic)
